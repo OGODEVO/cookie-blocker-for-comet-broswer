@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||cookielaw.org^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||onetrust.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||cookiebot.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||consent.cookiebot.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping", "sub_frame"]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||quantcast.com/choice",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||quantcast.mgr.consensu.org^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping", "sub_frame"]
+    }
+  },
+  {
+    "id": 7,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||didomi.io^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 8,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||sdk.privacy-center.org^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 9,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||trustarc.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||consent.trustarc.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping", "sub_frame"]
+    }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||cdn.cookielaw.org^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping", "stylesheet"]
+    }
+  },
+  {
+    "id": 12,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||osano.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 13,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||cookie-script.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 14,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||iubenda.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 15,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||termly.io^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 16,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||complianz.io^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 17,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||sourcepoint.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 18,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||sp-prod.net^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  },
+  {
+    "id": 19,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||fundingchoicesmessages.google.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping", "sub_frame"]
+    }
+  },
+  {
+    "id": 20,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||securepubads.g.doubleclick.net/gampad/cookie",
+      "resourceTypes": ["script", "xmlhttprequest", "image", "ping"]
+    }
+  }
+]

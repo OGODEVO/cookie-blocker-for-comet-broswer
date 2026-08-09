@@ -1,0 +1,22 @@
+/* Fallback hide rules — content script still does the real work */
+[data-ccb-hidden="1"],
+#onetrust-consent-sdk,
+#onetrust-banner-sdk,
+.onetrust-pc-dark-filter,
+#CybotCookiebotDialog,
+#CybotCookiebotDialogBodyUnderlay,
+.qc-cmp2-container,
+#didomi-host,
+#didomi-popup,
+.truste_overlay,
+.truste_box_overlay,
+.fc-consent-root,
+.fc-dialog-overlay {
+  /* Intentionally empty: content script decides visibility per mode.
+     This file exists so styles can be extended without another permission. */
+}
+
+html.ccb-unlock,
+body.ccb-unlock {
+  overflow: auto !important;
+}

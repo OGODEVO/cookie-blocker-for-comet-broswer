@@ -1,0 +1,18 @@
+# Chrome / Comet generated when loading unpacked
+_metadata/
+
+# Local logs / evolution exports (never commit)
+*.log
+logs/
+history.json
+history*.json
+block-history*
+*.har
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~

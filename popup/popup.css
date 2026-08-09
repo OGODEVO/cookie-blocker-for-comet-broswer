@@ -1,0 +1,283 @@
+:root {
+  --ink: #14221f;
+  --muted: #5c6f6a;
+  --paper: #f3eee4;
+  --panel: #fffdf8;
+  --line: #d7cfc0;
+  --accent: #0f4c4a;
+  --accent-soft: #d8ebe8;
+  --warn: #b85a3a;
+  --radius: 12px;
+  --font: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 80% at 100% 0%, #e7f2ef 0%, transparent 55%),
+    linear-gradient(180deg, #f7f2e8 0%, var(--paper) 100%);
+  font: 13px/1.4 var(--font);
+}
+
+main {
+  padding: 14px 14px 16px;
+  display: grid;
+  gap: 12px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.brand img {
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 1px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+section {
+  background: color-mix(in srgb, var(--panel) 88%, white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+select,
+button {
+  font: inherit;
+}
+
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.row strong {
+  display: block;
+  font-size: 13px;
+}
+
+.hint {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.site button {
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 7px 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.site button:hover {
+  background: #c9e2de;
+}
+
+.site.paused button {
+  background: #f3e0d8;
+  color: var(--warn);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+  padding: 10px 8px;
+}
+
+.stats span {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.stats small {
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
+.switch.compact {
+  width: 38px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch span {
+  position: absolute;
+  inset: 0;
+  background: #c9c2b4;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.switch span::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(20, 34, 31, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.switch.compact span::after {
+  width: 16px;
+  height: 16px;
+}
+
+.switch input:checked + span {
+  background: var(--accent);
+}
+
+.switch input:checked + span::after {
+  transform: translateX(18px);
+}
+
+.switch.compact input:checked + span::after {
+  transform: translateX(16px);
+}
+
+.history-panel {
+  padding: 10px 12px 8px;
+}
+
+.history-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.history-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.text-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 0;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.text-btn:hover {
+  color: var(--accent);
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 160px;
+  overflow: auto;
+  display: grid;
+  gap: 6px;
+}
+
+.history-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  font-size: 11px;
+}
+
+.history-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.history-list strong {
+  display: block;
+  font-size: 12px;
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-list span,
+.history-list time {
+  color: var(--muted);
+}
+
+.history-list .empty {
+  border: 0;
+  color: var(--muted);
+  padding: 4px 0 8px;
+}

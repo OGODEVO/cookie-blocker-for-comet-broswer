@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comet Cookie Blocker</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">
+        <img src="../icons/icon48.png" width="28" height="28" alt="" />
+        <div>
+          <h1>Comet Cookie Blocker</h1>
+          <p class="sub">Banners · trackers · cookies</p>
+        </div>
+      </div>
+      <label class="switch" title="Enable extension">
+        <input type="checkbox" id="enabled" checked />
+        <span></span>
+      </label>
+    </header>
+
+    <section>
+      <label class="field-label" for="mode">Banner action</label>
+      <select id="mode">
+        <option value="reject">Auto-reject (preferred)</option>
+        <option value="hide">Hide only</option>
+        <option value="accept">Auto-accept</option>
+      </select>
+    </section>
+
+    <section class="row">
+      <div>
+        <strong>Block trackers</strong>
+        <p class="hint">Ads, analytics, pixels, fingerprint beacons</p>
+      </div>
+      <label class="switch compact">
+        <input type="checkbox" id="blockTrackers" checked />
+        <span></span>
+      </label>
+    </section>
+
+    <section class="row">
+      <div>
+        <strong>Strip tracking cookies</strong>
+        <p class="hint">Deletes `_ga`, `_fbp`, ad IDs, and tracker-domain cookies</p>
+      </div>
+      <label class="switch compact">
+        <input type="checkbox" id="stripTrackingCookies" checked />
+        <span></span>
+      </label>
+    </section>
+
+    <section class="row">
+      <div>
+        <strong>Block CMP scripts</strong>
+        <p class="hint">OneTrust, Cookiebot, Quantcast, Didomi…</p>
+      </div>
+      <label class="switch compact">
+        <input type="checkbox" id="blockCmpScripts" checked />
+        <span></span>
+      </label>
+    </section>
+
+    <section class="row site">
+      <div>
+        <strong id="siteHost">this site</strong>
+        <p class="hint" id="siteStatus">Blocking on this site</p>
+      </div>
+      <button type="button" id="toggleSite">Pause here</button>
+    </section>
+
+    <section class="stats">
+      <div>
+        <span id="statTrackers">0</span>
+        <small>Trackers</small>
+      </div>
+      <div>
+        <span id="statCookies">0</span>
+        <small>Cookies</small>
+      </div>
+      <div>
+        <span id="statBanners">0</span>
+        <small>Banners</small>
+      </div>
+    </section>
+
+    <section class="history-panel">
+      <div class="history-head">
+        <strong>Recent blocks</strong>
+        <div class="history-actions">
+          <button type="button" id="purgeNow" class="text-btn">Purge cookies</button>
+          <button type="button" id="clearHistory" class="text-btn">Clear log</button>
+        </div>
+      </div>
+      <ul id="historyList" class="history-list"></ul>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

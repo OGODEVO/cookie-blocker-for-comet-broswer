@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Comet Cookie Blocker",
+  "version": "1.1.0",
+  "description": "Aggressive privacy for Comet: reject cookie banners, block trackers, strip tracking cookies, and learn from what gets blocked.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "cookies",
+    "alarms",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Comet Cookie Blocker",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content/content.js"],
+      "css": ["content/hide.css"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "cmp_block",
+        "enabled": true,
+        "path": "rules/cmp-block.json"
+      },
+      {
+        "id": "tracker_block",
+        "enabled": true,
+        "path": "rules/tracker-block.json"
+      },
+      {
+        "id": "cookie_strip",
+        "enabled": true,
+        "path": "rules/cookie-strip.json"
+      }
+    ]
+  }
+}

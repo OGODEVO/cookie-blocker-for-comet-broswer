@@ -1,0 +1,860 @@
+[
+  {
+    "id": 1001,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||doubleclick.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1002,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||google-analytics.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1003,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||googletagmanager.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1004,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||facebook.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1005,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||connect.facebook.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1006,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||scorecardresearch.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1007,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||quantserve.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1008,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||hotjar.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1009,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||adsrvr.org^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1010,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||adnxs.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1011,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||criteo.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1012,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||rubiconproject.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1013,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||pubmatic.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1014,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||casalemedia.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1015,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||demdex.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1016,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||everesttech.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1017,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||amazon-adsystem.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1018,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||bat.bing.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1019,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||clarity.ms^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1020,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||taboola.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1021,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||outbrain.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1022,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||segment.io^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1023,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||cdn.segment.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1024,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||mixpanel.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1025,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||amplitude.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 1026,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "remove"
+        }
+      ],
+      "responseHeaders": [
+        {
+          "header": "set-cookie",
+          "operation": "remove"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||fullstory.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame",
+        "ping",
+        "media",
+        "websocket",
+        "other",
+        "main_frame"
+      ]
+    }
+  }
+]
