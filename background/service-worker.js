@@ -5,6 +5,14 @@ import {
   TRACKING_COOKIE_NAMES
 } from "./constants.js";
 
+// Respawning trackers (e.g. google.com "NID", x.com "personalization_id") get
+// re-set by the site within seconds of deletion. Without a cooldown this turns
+// into a delete/respawn loop that floods history and burns CPU. Track the last
+// deletion per "host|name" and skip immediate re-deletes; the periodic purge
+// alarm still catches stragglers.
+const COOKIE_COOLDOWN_MS = 10 * 60 * 1000; // 10 minutes
+const recentCookieDeletes = new Map(); // "host|name" -> last-delete timestamp
+
 chrome.runtime.onInstalled.addListener(async () => {
   const stored = await chrome.storage.sync.get(null);
   const next = {
@@ -27,7 +35,10 @@ chrome.runtime.onStartup.addListener(async () => {
 chrome.storage.onChanged.addListener(async (changes, area) => {
   if (area !== "sync") return;
   const data = await chrome.storage.sync.get(DEFAULTS);
-  await applyRuleSets(data);
+  const ruleKeys = ["enabled", "blockCmpScripts", "blockTrackers", "stripTrackingCookies"];
+  if (ruleKeys.some((key) => key in changes)) {
+    await applyRuleSets(data);
+  }
   updateBadge(data);
 });
 
@@ -49,6 +60,10 @@ chrome.cookies.onChanged.addListener(async (changeInfo) => {
   if (isWhitelisted(host, data.whitelist || [])) return;
 
   if (shouldDeleteCookie(cookie)) {
+    const cacheKey = `${host}|${cookie.name}`;
+    if (Date.now() - (recentCookieDeletes.get(cacheKey) || 0) < COOKIE_COOLDOWN_MS) {
+      return; // respawn loop guard — let the periodic purge handle it later
+    }
     const ok = await removeCookie(cookie);
     if (ok) {
       await bumpStats({ cookies: 1 });
@@ -186,7 +201,14 @@ async function bumpStats(partial) {
 async function appendHistory(entry) {
   const data = await chrome.storage.local.get({ history: [] });
   const history = Array.isArray(data.history) ? data.history : [];
-  history.unshift(entry);
+  const last = history[0];
+  const sameEvent =
+    last &&
+    last.type === entry.type &&
+    last.host === entry.host &&
+    (last.name || "") === (entry.name || "") &&
+    (last.url || "") === (entry.url || "");
+  if (!sameEvent) history.unshift(entry);
   if (history.length > HISTORY_LIMIT) history.length = HISTORY_LIMIT;
   await chrome.storage.local.set({ history });
 }
@@ -250,6 +272,7 @@ function guessCookieProvider(cookie) {
 
 async function removeCookie(cookie) {
   const domain = normalizeHost(cookie.domain);
+  const cacheKey = `${domain}|${cookie.name}`;
   const protocols = cookie.secure ? ["https:"] : ["https:", "http:"];
   for (const protocol of protocols) {
     const url = `${protocol}//${domain}${cookie.path || "/"}`;
@@ -259,7 +282,10 @@ async function removeCookie(cookie) {
         name: cookie.name,
         storeId: cookie.storeId
       });
-      if (ok) return true;
+      if (ok) {
+        recentCookieDeletes.set(cacheKey, Date.now());
+        return true;
+      }
     } catch {
       /* try next */
     }
