@@ -3,7 +3,7 @@
 > A Manifest V3 privacy extension for **Perplexity Comet** (works in Chrome / Edge / Brave too).
 > Built on the assumption that consent is theatre — and that the receipts prove it.
 
----
+---.
 
 ## Five days of real browsing. Here's what it already caught.
 
