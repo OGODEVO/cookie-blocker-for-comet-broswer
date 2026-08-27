@@ -149,8 +149,32 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     return true;
   }
 
+  if (message?.type === "getLogs") {
+    Promise.all([
+      chrome.storage.local.get({ history: [], breakdown: null }),
+      chrome.storage.sync.get(DEFAULTS)
+    ]).then(([localData, syncData]) => {
+      sendResponse({
+        stats: syncData.stats || {},
+        settings: {
+          enabled: syncData.enabled,
+          mode: syncData.mode,
+          blockTrackers: syncData.blockTrackers,
+          stripTrackingCookies: syncData.stripTrackingCookies,
+          blockCmpScripts: syncData.blockCmpScripts,
+          whitelist: syncData.whitelist || []
+        },
+        breakdown: localData.breakdown || {},
+        history: localData.history || []
+      });
+    });
+    return true;
+  }
+
   if (message?.type === "clearHistory") {
-    chrome.storage.local.set({ history: [] }).then(() => sendResponse({ ok: true }));
+    chrome.storage.local
+      .set({ history: [], breakdown: null })
+      .then(() => sendResponse({ ok: true }));
     return true;
   }
 
@@ -199,7 +223,7 @@ async function bumpStats(partial) {
 }
 
 async function appendHistory(entry) {
-  const data = await chrome.storage.local.get({ history: [] });
+  const data = await chrome.storage.local.get({ history: [], breakdown: null });
   const history = Array.isArray(data.history) ? data.history : [];
   const last = history[0];
   const sameEvent =
@@ -210,7 +234,28 @@ async function appendHistory(entry) {
     (last.url || "") === (entry.url || "");
   if (!sameEvent) history.unshift(entry);
   if (history.length > HISTORY_LIMIT) history.length = HISTORY_LIMIT;
-  await chrome.storage.local.set({ history });
+  const breakdown = bumpBreakdown(data.breakdown, entry);
+  await chrome.storage.local.set({ history, breakdown });
+}
+
+// Cumulative per-host / per-provider / per-cookie-name counters. The raw
+// history rolls off at HISTORY_LIMIT (and Google's NID respawn floods it
+// fast), so this breakdown is what actually survives for later analysis.
+function bumpBreakdown(breakdown, entry) {
+  const b = breakdown || {};
+  const hosts = { ...(b.hosts || {}) };
+  const providers = { ...(b.providers || {}) };
+  const cookies = { ...(b.cookies || {}) };
+  const types = { ...(b.types || {}) };
+
+  types[entry.type] = (types[entry.type] || 0) + 1;
+  if (entry.host) hosts[entry.host] = (hosts[entry.host] || 0) + 1;
+  if (entry.provider && entry.provider !== "unknown") {
+    providers[entry.provider] = (providers[entry.provider] || 0) + 1;
+  }
+  if (entry.name) cookies[entry.name] = (cookies[entry.name] || 0) + 1;
+
+  return { hosts, providers, cookies, types };
 }
 
 async function applyRuleSets(data) {

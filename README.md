@@ -27,7 +27,7 @@ The two most stripped cookies — Google's `NID` and X's `personalization_id` �
 
 ## What it does
 
-- **Auto-rejects** cookie consent banners (OneTrust, Cookiebot, Quantcast, Didomi, TrustArc, Osano, Sourcepoint, Google Funding Choices, Iubenda, Complianz — plus generic text heuristics)
+- **Auto-rejects** cookie consent banners (OneTrust, Cookiebot, Quantcast, Didomi, TrustArc, Osano, Sourcepoint, Google Funding Choices, Iubenda, Complianz, CookieYes, Usercentrics, Cookie Information, Borlabs, Pandectes, Termly, Axeptio, Klaro — plus generic text heuristics)
 - **Blocks tracker requests** at the network level (`declarativeNetRequest`)
 - **Strips tracking cookies** as they appear + a 15-minute purge sweep
 - **Blocks CMP scripts** so the consent wall never even renders
@@ -64,6 +64,41 @@ The two most stripped cookies — Google's `NID` and X's `personalization_id` �
 - success flag + timestamp
 
 Sync storage keeps settings + aggregate counters only. No history, no browsing data, nothing personal leaves the machine.
+
+## Accessing logs (for agents)
+
+The block history and cumulative breakdown live inside the browser's own storage,
+which isn't directly readable. Use `export-logs.py` to pull them as clean JSON —
+no dependencies, works while Comet is running:
+
+```bash
+python3 export-logs.py              # full JSON: stats + breakdown + history
+python3 export-logs.py --summary    # aggregate counts only
+python3 export-logs.py --out logs.json
+python3 export-logs.py --ext-id <id> --comet-dir <path>   # override auto-detection
+```
+
+Output shape:
+
+```json
+{
+  "generated_at": "…",
+  "extension": { "id": "…", "name": "Comet Cookie Blocker" },
+  "stats": { "trackers": 80, "cookies": 541, "banners": 2, "clicks": 2, "hides": 1 },
+  "breakdown": { "hosts": { "google.com": 163 }, "providers": {}, "cookies": {}, "types": {} },
+  "history_count": 249,
+  "history": [ { "type": "cookie", "host": "google.com", "name": "NID", "ts": … } ]
+}
+```
+
+- `stats` — cumulative counters since install.
+- `breakdown` — per-host / per-provider / per-cookie-name counters that survive
+  the 250-entry history roll-off (this is what the "rules evolve" loop should read).
+- `history` — the recent window, newest first.
+
+There is also a `getLogs` message inside the extension (`chrome.runtime.sendMessage({ type: "getLogs" })`)
+that returns the same `{ stats, settings, breakdown, history }` shape for anything
+running in-extension.
 
 ## Notes
 

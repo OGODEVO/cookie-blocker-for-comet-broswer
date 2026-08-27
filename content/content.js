@@ -59,6 +59,60 @@
       containers: ["#cmplz-cookiebanner-container", ".cmplz-cookiebanner"],
       reject: [".cmplz-btn.cmplz-deny", ".cmplz-deny"],
       accept: [".cmplz-btn.cmplz-accept", ".cmplz-accept"]
+    },
+    {
+      name: "cookieyes",
+      containers: [".cookieyes", "#cookieyes", "[id*='cookieyes']"],
+      reject: [".cookieyes-btn-deny", "button.cookieyes-deny", "[aria-label*='Decline' i]"],
+      accept: [".cookieyes-btn-accept", "button.cookieyes-accept"]
+    },
+    {
+      name: "usercentrics",
+      containers: ["#usercentrics-root", ".usercentrics-root", "[aria-label*='Cookie' i][role='dialog']"],
+      reject: ["[data-testid='deny-all']", ".uc-deny-all", "button[data-testid='deny-button']"],
+      accept: ["[data-testid='accept-all']", ".uc-accept-all", "button[data-testid='accept-button']"]
+    },
+    {
+      name: "cookie_information",
+      containers: [".cii-dialog", "#cookie-information", ".cookie-information"],
+      reject: [".cii-btn-deny", ".cookie-information-deny", "button[aria-label*='Decline' i]"],
+      accept: [".cii-btn-accept", ".cookie-information-accept"]
+    },
+    {
+      name: "pandectes",
+      containers: ["#pandectes-banner", ".pandectes-banner", ".pandectes-cookie-banner"],
+      reject: [".pandectes-btn-deny", ".pandectes-deny", "[id*='reject']"],
+      accept: [".pandectes-btn-accept", ".pandectes-accept"]
+    },
+    {
+      name: "termly",
+      containers: ["#termly-consent-popup", ".termly-consent-popup", "[aria-label*='Cookie' i]"],
+      reject: ["[data-testid='deny-btn']", ".termly-deny", "button[aria-label*='Decline' i]"],
+      accept: ["[data-testid='accept-btn']", ".termly-accept"]
+    },
+    {
+      name: "axeptio",
+      containers: ["#axeptio-btn", ".axeptio-btn", "#axeptio_placeholder"],
+      reject: [".axeptio-deny", "#axeptio_deny_all", "button[aria-label*='Refuse' i]"],
+      accept: [".axeptio-accept", "#axeptio_accept_all"]
+    },
+    {
+      name: "borlabs",
+      containers: ["#borlabs-cookie", ".borlabs-cookie", ".BorlabsCookie"],
+      reject: [".borlabs-deny", "#borlabs-cookie-deny", ".br-deny"],
+      accept: [".borlabs-accept", "#borlabs-cookie-accept", ".br-accept"]
+    },
+    {
+      name: "klaro",
+      containers: ["#klaro", ".klaro", ".kiwi-cm"],
+      reject: [".klaro-deny", ".klaro-no", "[aria-label*='Decline' i]"],
+      accept: [".klaro-accept", ".klaro-yes"]
+    },
+    {
+      name: "cookiebar",
+      containers: ["#cookie-bar", ".cookie-bar", "#cookiebar", ".cookiebar"],
+      reject: ["#cookie-bar-decline", ".cookie-bar-decline", "#cc-dismiss"],
+      accept: ["#cookie-bar-accept", ".cookie-bar-accept"]
     }
   ];
 
@@ -81,6 +135,15 @@
     ".fc-dialog-overlay",
     "#iubenda-cs-banner",
     "#cmplz-cookiebanner-container",
+    "#usercentrics-root",
+    ".cookieyes",
+    ".cii-dialog",
+    "#pandectes-banner",
+    "#termly-consent-popup",
+    "#axeptio-btn",
+    "#borlabs-cookie",
+    "#klaro",
+    "#cookie-bar",
     "[id*='cookie'][id*='banner' i]",
     "[id*='cookie'][id*='consent' i]",
     "[id*='cookie'][id*='notice' i]",
@@ -326,14 +389,12 @@
   }
 
   function findFirst(selectors, root = document) {
-    for (const raw of selectors) {
-      for (const selector of expandSelector(raw)) {
-        try {
-          const el = root.querySelector?.(selector);
-          if (el && isVisible(el)) return el;
-        } catch {
-          /* invalid selector */
-        }
+    for (const selector of selectors) {
+      try {
+        const el = root.querySelector?.(selector);
+        if (el && isVisible(el)) return el;
+      } catch {
+        /* invalid selector */
       }
     }
     return null;
@@ -341,25 +402,14 @@
 
   function queryAll(selectors, root = document) {
     const out = [];
-    for (const raw of selectors) {
-      for (const selector of expandSelector(raw)) {
-        try {
-          out.push(...root.querySelectorAll(selector));
-        } catch {
-          /* ignore */
-        }
+    for (const selector of selectors) {
+      try {
+        out.push(...root.querySelectorAll(selector));
+      } catch {
+        /* ignore */
       }
     }
     return out;
-  }
-
-  function expandSelector(selector) {
-    // Support simple "#id_*" wildcard suffix used above
-    if (selector.includes("*") && !selector.includes("[")) {
-      const safe = selector.replace(/\*/g, "");
-      return [safe];
-    }
-    return [selector];
   }
 
   function findTextButton(root, patterns) {
